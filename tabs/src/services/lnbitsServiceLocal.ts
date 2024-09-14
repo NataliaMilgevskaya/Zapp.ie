@@ -500,6 +500,36 @@ const getWalletIdByUserId = async (adminKey: string, userId: string) => {
   }
 };
 
+const getTotalSentAmount = async (inKey: string): Promise<number> => {
+  console.log(`getTotalSentAmount starting ... (inKey: ${inKey})`);
+ 
+  try {
+    const response = await fetch(`/api/v1/payments?limit=100`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-Api-Key': inKey,
+      },
+    });
+ 
+    if (!response.ok) {
+      throw new Error(`Error getting payments (status: ${response.status})`);
+    }
+ 
+    const data = await response.json();
+ 
+    // Calculate the total sent amount
+    const totalSentAmount = data
+      .filter((payment: { amount: number; out: boolean }) => payment.out)
+      .reduce((total: number, payment: { amount: number }) => total + payment.amount, 0);
+ 
+    return totalSentAmount / 1000; // return in Sats (not millisatoshis)
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+};
+
 export {
   getWallets,
   getWalletName,
@@ -516,4 +546,5 @@ export {
   ensureMatchingUserWallet,
   payInvoice,
   getWalletIdByUserId,
+  getTotalSentAmount
 };
