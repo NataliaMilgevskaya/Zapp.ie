@@ -1,20 +1,42 @@
 .string {
-    width: 160px;
+    width: 10%;
     position: relative;
     line-height: 16px;
     display: flex;
     align-items: center;
     flex-shrink: 0;
+    padding-left: 6px;
 }
+
 .string2 {
+    width: auto;
     flex: 1;
     position: relative;
     line-height: 16px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0px;
 }
+
 .string3 {
+    width: 12%;
     position: relative;
     line-height: 16px;
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
 }
+
+.string4 {
+    width: 110px;
+    position: relative;
+    line-height: 16px;
+    display: flex;
+    align-items: center;
+}
+
+
 .stringWrapper {
     width: 85px;
     display: flex;
@@ -61,6 +83,12 @@
     box-sizing: border-box;
     gap: 20px;
 }
+
+.headerContainer {
+    display: flex;
+    align-items: center;
+  }
+
 .headercell {
     align-self: stretch;
     background-color: #1f1f1f;
@@ -132,24 +160,121 @@
     box-sizing: border-box;
 }
 .bodycell {
-    align-self: stretch;
-    height: 44px;
     display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: flex-start;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #222;
+    border-bottom: 1px solid #333;
+    padding: 0px;
 }
 .feedlist {
     width: 100%;
+    padding: 0;
+    margin: 0;
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    justify-content: flex-start;
+    justify-content: space-between;
     gap: 1px;
     text-align: left;
     font-size: 12px;
     color: #fff;
     font-family: Inter;
+    background-color: #2d2b2c;
+    overflow-y: auto;
+    overflow-x: auto;
+}
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+.table {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.statusProcessed {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 4px 14px;
+    gap: 10px;
+    width: 80px;
+    height: 22px;
+    background: rgba(242, 169, 0, 0.1);
+    border-radius: 12px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    color:#F2A900;
+    width: auto;
 }
 
+.statusNew {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 4px 14px;
+    gap: 10px;
+    width: 50px;
+    height: 22px;
+    background: rgba(108, 244, 255, 0.1);
+    border-radius: 12px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    color:#6CF4FF;
+    width: auto;
+}
+
+.statusFailed {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 4px 14px;
+    gap: 10px;
+    width: 80px;
+    height: 22px;
+    background: rgba(242, 23, 187, 0.1);
+    border-radius: 12px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    color:#F217BB;
+    width: auto;
+}
+
+.statusConfirmed {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 4px 14px;
+    gap: 10px;
+    width: 80px;
+    height: 22px;
+    background: rgba(0, 161, 75, 0.1);
+    border-radius: 12px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    color:#00A14B;
+    width: auto;
+}
+
+.sortIcon {
+    margin-left: 85px;
+    width: 17px;
+    height: 17px;
+    margin-right: 95px;
+}
+
+.activeSortIcon {
+    color: red;
+  }

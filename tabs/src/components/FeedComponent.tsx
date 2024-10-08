@@ -1,12 +1,10 @@
-import { FunctionComponent, useCallback, useState, lazy, Suspense } from 'react';
+import { FunctionComponent, useCallback, useState } from 'react';
 import styles from './FeedComponent.module.css';
 import FeedList from './FeedList';
 
-const Leaderboard = lazy(() => import('./Leaderboard'));
-
 const FeedComponent: FunctionComponent = () => {
   const [timestamp, setTimestamp] = useState(
-    Math.floor(Date.now() / 1000 - 7 * 24 * 60 * 60),
+    Date.now() - 7 * 24 * 60 * 60*1000,// 7 days ago in milliseconds
   );
   const [activePeriod, setActivePeriod] = useState(7); // Set default to 7-days
   const [showFeed, setShowFeed] = useState(true);
@@ -16,15 +14,10 @@ const FeedComponent: FunctionComponent = () => {
     //setTimestamp(Math.floor(Date.now() / 1000)); // Update timestamp when showing leaderboard
   };
 
-  const handleShowLeaderboard = () => {
-    setShowFeed(false);
-    //setTimestamp(Math.floor(Date.now() / 1000)); // Update timestamp when showing leaderboard
-  };
-
   const handlePeriodClick = (days: number) => {
     // setTimestamp(Math.floor(Date.now() / 1000 - days * 24 * 60 * 60));
-    const newTimestamp = Math.floor(Date.now() / 1000 - days * 24 * 60 * 60);
-    console.log(`Period clicked: ${days} days, new timestamp: ${newTimestamp}`);
+    const newTimestamp = Date.now() - days * 24 * 60 * 60 * 1000;
+    console.log(`Period clicked: ${days} days, new timestamp (ms): ${newTimestamp}`);
     setTimestamp(newTimestamp);
     setActivePeriod(days);
   };
@@ -46,20 +39,7 @@ const FeedComponent: FunctionComponent = () => {
             </div>
           </div>
         </div>
-        <div className={styles.tab1}>
-          <div className={styles.base1}>
-            <div className={styles.stringBadgeIconStack}>
-              <div
-                className={`${styles.stringTabTitle} ${
-                  !showFeed ? styles.active : ''
-                }`}
-                onClick={handleShowLeaderboard}
-              >
-                Leaderboard
-              </div>
-            </div>
-          </div>
-        </div>
+        
       </div>
       <div className={styles.pivotPointsdoubleFull60}>
         <div
@@ -90,13 +70,9 @@ const FeedComponent: FunctionComponent = () => {
           60 days
         </div>
       </div>
-      {showFeed ? (
+      
         <FeedList timestamp={timestamp} />
-      ) : (
-        <Suspense fallback={<div>Loading...</div>}>
-          <Leaderboard timestamp={timestamp} />
-        </Suspense>
-      )}
+      
     </div>
   );
 };
