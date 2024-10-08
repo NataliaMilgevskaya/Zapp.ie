@@ -168,15 +168,15 @@ const FeedList: React.FC<FeedListProps> = ({ timestamp }) => {
           <b className={styles.string3}>Sent from</b>
           
           <div
-            className={`${styles.string2} ${styles.headerContainer} ${activeSortColumn === 'date' ? styles.activeSort : ''}`}
+            className={`${styles.string5} ${activeSortColumn === 'date' ? styles.activeSort : ''}`}
             style={{ cursor: 'pointer', color: activeSortColumn === 'date' ? '#5b5fc7': '#d8d8d8' }}
             onClick={handleDateSort}
           >
-            <b className={`${styles.string2} ${styles.b}`}>Received date</b>
+            <b className={`${styles.string5}`}>Received date</b>
             <img
               src={isDateAscending ? AscendingIcon : DescendingIcon}
               alt={isDateAscending ? 'Ascending' : 'Descending'}
-              className={`${styles.sortIcon} ${activeSortColumn === 'date' ? styles.activeSortIcon : ''}`}
+              className={`${styles.sortIconDate} ${activeSortColumn === 'date' ? styles.activeSortIcon : ''}`}
               style={{ filter: activeSortColumn === 'date' ? 'hue-rotate(100deg)' : 'none' }} // Blue for active sort
             />
           </div>
@@ -188,11 +188,11 @@ const FeedList: React.FC<FeedListProps> = ({ timestamp }) => {
             style={{ cursor: 'pointer', color: activeSortColumn === 'amount' ? '#5b5fc7' : '#d8d8d8' }}
             onClick={handleAmountSort}
           >
-            <b className={`${styles.string3} ${styles.b}`}>Invoice amount</b>
+            <b className={`${styles.string3}`}>Invoice amount</b>
             <img
               src={isAmountAscending ? AscendingIcon : DescendingIcon}
               alt={isAmountAscending ? 'Ascending' : 'Descending'}
-              className={styles.sortIcon}
+              className={`${styles.sortIconAmount} ${activeSortColumn === 'amount' ? styles.activeSortIcon : ''}`}
               style={{ filter: activeSortColumn === 'amount' ? 'hue-rotate(100deg)' : 'none' }} // Blue for active sort
             />
           </div>

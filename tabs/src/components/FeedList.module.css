@@ -26,6 +26,7 @@
     display: flex;
     align-items: center;
     white-space: nowrap;
+    justify-content: flex-start;
 }
 
 .string4 {
@@ -36,28 +37,17 @@
     align-items: center;
 }
 
-
-.stringWrapper {
-    width: 85px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-end;
-    font-family: 'Segoe UI';
-}
-.iconContent {
-    width: 20px;
+.string5 {
+    width: 10%;
+    flex: 1;
     position: relative;
-    height: 20px;
-}
-.base {
-    border-radius: 100px;
-    display: flex;
+    line-height: 16px;
     flex-direction: row;
     align-items: center;
     justify-content: flex-start;
-    padding: 2px;
+    gap: 0px;
 }
+
 .iconbutton {
     border-radius: 4px;
     overflow: hidden;
@@ -66,12 +56,7 @@
     align-items: flex-start;
     justify-content: flex-start;
 }
-.buttonsStack {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: flex-start;
-}
+
 .headerContents {
     flex: 1;
     height: 32px;
@@ -98,67 +83,11 @@
     justify-content: flex-start;
     color: #d8d8d8;
 }
-.avatarIcon {
-    width: 24px;
-    position: relative;
-    height: 24px;
-    object-fit: cover;
-}
-.userName {
-    flex: 1;
-    position: relative;
-    width: 250px;
-    text-wrap: nowrap;
-    overflow: hidden;
-}
-.personDetails {
-    width: 160px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 10px;
-}
-.mainContentStack {
-    flex: 1;
-    height: 32px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 20px;
-}
+
 .b {
     position: relative;
 }
-.icon {
-    width: 16px;
-    position: relative;
-    height: 16px;
-    overflow: hidden;
-    flex-shrink: 0;
-}
-.transactionDetails {
-    align-self: stretch;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-end;
-    padding: 0px 0px 0px 20px;
-    gap: 10px;
-    text-align: right;
-}
-.bodyContents {
-    flex: 1;
-    background-color: #1f1f1f;
-    height: 44px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0px 10px;
-    box-sizing: border-box;
-}
+
 .bodycell {
     display: flex;
     justify-content: space-between;
@@ -268,13 +197,16 @@ ul {
     width: auto;
 }
 
-.sortIcon {
-    margin-left: 85px;
+.sortIconDate {
+    margin-left: 5px;
     width: 17px;
     height: 17px;
-    margin-right: 95px;
+    margin-right: 22px;
 }
 
-.activeSortIcon {
-    color: red;
-  }
+.sortIconAmount {
+    margin-left: 80px;
+    width: 17px;
+    height: 17px;
+    margin-right: 22px;
+}
